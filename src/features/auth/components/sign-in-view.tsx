@@ -45,7 +45,7 @@ export default function SignInViewPage({ stars }: { stars: number }) {
       </div>
 
       {/* Right Auth Form Section */}
-      <div className='flex w-full flex-col items-center justify-center lg:w-1/2 px-6 bg-gradient-to-br from-[#f5f0ff] via-white to-[#faf7fe]'>
+      <div className='flex w-full flex-col items-center justify-center lg:w-1/2 px-6 bg-[#241e48] text-white'>
         <div className='w-full max-w-md space-y-6'>
           <div className='space-y-1 text-center'>
             <h1 className='text-2xl font-bold'>Welcome to Dinepanel 👋</h1>
