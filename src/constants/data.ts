@@ -14,51 +14,79 @@ export type Product = {
 //Info: The following data is used for the sidebar navigation and Cmd K bar.
 export const navItems: NavItem[] = [
   {
-    title: 'Dashboard',
+    title: 'Home',
     url: '/dashboard/overview',
-    icon: 'dashboard',
+    icon: 'home',
+    shortcut: ['h', 'h'],
     isActive: false,
-    shortcut: ['d', 'd'],
-    items: [] // Empty array as there are no child items for Dashboard
+    items: []
   },
   {
-    title: 'Product',
-    url: '/dashboard/product',
-    icon: 'product',
-    shortcut: ['p', 'p'],
+    title: 'Restaurants',
+    url: '/dashboard/restaurants',
+    icon: 'store',
+    shortcut: ['r', 'r'],
     isActive: false,
-    items: [] // No child items
+    items: []
   },
   {
-    title: 'Account',
-    url: '#', // Placeholder as there is no direct link for the parent
-    icon: 'billing',
-    isActive: true,
-
-    items: [
-      {
-        title: 'Profile',
-        url: '/dashboard/profile',
-        icon: 'userPen',
-        shortcut: ['m', 'm']
-      },
-      {
-        title: 'Login',
-        shortcut: ['l', 'l'],
-        url: '/',
-        icon: 'login'
-      }
-    ]
+    title: 'Users',
+    url: '/dashboard/users',
+    icon: 'users',
+    shortcut: ['u', 'u'],
+    isActive: false,
+    items: []
   },
   {
-    title: 'Kanban',
-    url: '/dashboard/kanban',
-    icon: 'kanban',
-    shortcut: ['k', 'k'],
+    title: 'Subscription & Billing',
+    url: '/dashboard/billing',
+    icon: 'creditCard',
+    shortcut: ['b', 'b'],
     isActive: false,
-    items: [] // No child items
+    items: []
+  },
+  {
+    title: 'Menus',
+    url: '/dashboard/menus',
+    icon: 'list',
+    shortcut: ['m', 'm'],
+    isActive: false,
+    items: []
+  },
+  {
+    title: 'Content Library',
+    url: '/dashboard/library',
+    icon: 'library',
+    shortcut: ['c', 'c'],
+    isActive: false,
+    items: []
+  },
+  {
+    title: 'Analytics & Reports',
+    url: '/dashboard/analytics',
+    icon: 'barChart',
+    shortcut: ['a', 'a'],
+    isActive: false,
+    items: []
+  },
+  {
+    title: 'AI Tools',
+    url: '/dashboard/ai',
+    icon: 'bot',
+    shortcut: ['i', 'i'],
+    isActive: false,
+    items: []
+  },
+  {
+    title: 'Settings',
+    url: '/dashboard/settings',
+    icon: 'settings',
+    shortcut: ['s', 's'],
+    isActive: false,
+    items: []
   }
 ];
+
 
 export interface SaleUser {
   id: number;

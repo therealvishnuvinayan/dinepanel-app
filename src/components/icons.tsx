@@ -33,6 +33,32 @@ import {
   IconBrandGithub
 } from '@tabler/icons-react';
 
+import {
+  Home,
+  Store,
+  Users,
+  CreditCard,
+  List,
+  BookOpen,
+  BarChart2,
+  Bot,
+  Settings,
+  LayoutDashboard,
+  Box,
+  Kanban,
+  User,
+  LogIn,
+  LogOut,
+  X,
+  Loader2,
+  Trash2,
+  ChevronLeft,
+  ChevronRight,
+  UserRoundCog,
+  FileText,
+  Image as ImageIcon
+} from 'lucide-react';
+
 export type Icon = React.ComponentType<IconProps>;
 
 export const Icons = {
@@ -66,5 +92,16 @@ export const Icons = {
   laptop: IconDeviceLaptop,
   github: IconBrandGithub,
   twitter: IconBrandTwitter,
-  check: IconCheck
+  check: IconCheck,
+
+  home: Home,
+  store: Store,
+  users: Users,
+  creditCard: CreditCard,
+  list: List,
+  library: BookOpen,
+  barChart: BarChart2,
+  bot: Bot,
+  allSettings: Settings,
+  
 };

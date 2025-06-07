@@ -6,8 +6,9 @@ import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn Dashboard Starter',
-  description: 'Basic dashboard with Next.js and Shadcn'
+  title: 'Dinepanel Dashboard',
+  description:
+    'Dinepanel helps restaurants streamline operations, manage digital menus, track orders, and enhance the dining experience — all from one intuitive dashboard.'
 };
 
 export default async function DashboardLayout({
@@ -17,7 +18,7 @@ export default async function DashboardLayout({
 }) {
   // Persisting the sidebar state in the cookie.
   const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
+  const defaultOpen = cookieStore.get('sidebar_state')?.value === 'true';
   return (
     <KBar>
       <SidebarProvider defaultOpen={defaultOpen}>

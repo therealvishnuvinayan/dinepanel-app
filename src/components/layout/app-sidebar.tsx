@@ -46,29 +46,20 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
-import { OrgSwitcher } from '../org-switcher';
+import { useSidebar } from '@/components/ui/sidebar';
+import Image from 'next/image';
 export const company = {
   name: 'Acme Inc',
   logo: IconPhotoUp,
   plan: 'Enterprise'
 };
 
-const tenants = [
-  { id: '1', name: 'Acme Inc' },
-  { id: '2', name: 'Beta Corp' },
-  { id: '3', name: 'Gamma Ltd' }
-];
-
 export default function AppSidebar() {
+  const { state } = useSidebar();
   const pathname = usePathname();
   const { isOpen } = useMediaQuery();
   const { user } = useUser();
   const router = useRouter();
-  const handleSwitchTenant = (_tenantId: string) => {
-    // Tenant switching functionality would be implemented here
-  };
-
-  const activeTenant = tenants[0];
 
   React.useEffect(() => {
     // Side effects based on sidebar state changes
@@ -77,18 +68,57 @@ export default function AppSidebar() {
   return (
     <Sidebar collapsible='icon'>
       <SidebarHeader>
-        <OrgSwitcher
-          tenants={tenants}
-          defaultTenant={activeTenant}
-          onTenantSwitch={handleSwitchTenant}
-        />
+        {state === 'collapsed' ? (
+          <>
+            {/* Light mode icon */}
+            <Image
+              src='/assets/icon-logo-light.png'
+              alt='Dinepanel Icon Light'
+              width={40}
+              height={40}
+              className='mx-auto object-contain pt-2 dark:hidden'
+            />
+            {/* Dark mode icon */}
+            <Image
+              src='/assets/icon-logo-dark.png'
+              alt='Dinepanel Icon Dark'
+              width={40}
+              height={40}
+              className='mx-auto hidden object-contain pt-2 dark:block'
+            />
+          </>
+        ) : (
+          <>
+            {/* Light mode full logo */}
+            <Image
+              src='/assets/main-logo-light.png'
+              alt='Dinepanel Logo Light'
+              width={160}
+              height={40}
+              loading='lazy'
+              className='object-contain pt-2 dark:hidden'
+            />
+            {/* Dark mode full logo */}
+            <Image
+              src='/assets/main-logo-dark.png'
+              alt='Dinepanel Logo Dark'
+              width={160}
+              height={40}
+              loading='lazy'
+              className='hidden object-contain pt-2 dark:block'
+            />
+          </>
+        )}
       </SidebarHeader>
+
       <SidebarContent className='overflow-x-hidden'>
         <SidebarGroup>
           <SidebarGroupLabel>Overview</SidebarGroupLabel>
           <SidebarMenu>
             {navItems.map((item) => {
-              const Icon = item.icon ? Icons[item.icon] : Icons.logo;
+              const Icon = item.icon
+                ? Icons[item.icon as keyof typeof Icons]
+                : Icons.logo;
               return item?.items && item?.items?.length > 0 ? (
                 <Collapsible
                   key={item.title}
