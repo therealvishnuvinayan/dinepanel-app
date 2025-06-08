@@ -15,7 +15,7 @@ export type Product = {
 export const navItems: NavItem[] = [
   {
     title: 'Home',
-    url: '/dashboard/overview',
+    url: '/overview',
     icon: 'home',
     shortcut: ['h', 'h'],
     isActive: false,
@@ -23,7 +23,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Clients',
-    url: '/dashboard/clients',
+    url: '/clients',
     icon: 'store',
     shortcut: ['r', 'r'],
     isActive: false,
@@ -31,7 +31,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Users',
-    url: '/dashboard/users',
+    url: '/users',
     icon: 'users',
     shortcut: ['u', 'u'],
     isActive: false,
@@ -39,7 +39,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Subscription & Billing',
-    url: '/dashboard/billing',
+    url: '/billing',
     icon: 'creditCard',
     shortcut: ['b', 'b'],
     isActive: false,
@@ -47,7 +47,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Menus',
-    url: '/dashboard/menus',
+    url: '/menus',
     icon: 'list',
     shortcut: ['m', 'm'],
     isActive: false,
