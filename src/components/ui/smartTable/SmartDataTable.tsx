@@ -76,7 +76,7 @@ export function SmartDataTable<T>({
             {onExport && (
               <Button
                 variant='bordered'
-                className='border-default-300 rounded-md border bg-white text-black dark:bg-white dark:text-black'
+                className='border-default-300 cursor-pointer rounded-md border bg-white text-black dark:bg-white dark:text-black'
                 onPress={onExport}
               >
                 <Download className='mr-2 h-4 w-4 text-black' /> Export
