@@ -22,8 +22,8 @@ export const navItems: NavItem[] = [
     items: []
   },
   {
-    title: 'Restaurants',
-    url: '/dashboard/restaurants',
+    title: 'Clients',
+    url: '/dashboard/clients',
     icon: 'store',
     shortcut: ['r', 'r'],
     isActive: false,
