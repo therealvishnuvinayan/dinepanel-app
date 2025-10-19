@@ -1,115 +1,181 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/9113740/201498864-2a900c64-d88f-4ed4-b5cf-770bcb57e1f5.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/9113740/201498152-b171abb8-9225-487a-821c-6ff49ee48579.png">
-</picture>
+# 🍽️ Dinepanel – Restaurant Dashboard Starter
 
-<div align="center"><strong>Next.js Admin Dashboard Starter Template With Shadcn-ui</strong></div>
-<div align="center">Built with the Next.js 15 App Router</div>
-<br />
-<div align="center">
-<a href="https://dub.sh/shadcn-dashboard">View Demo</a>
-<span>
-</div>
+A modern, production‑ready **Next.js 15** dashboard template for restaurant operations. It ships with **Clerk auth**, **Neon/Postgres + Drizzle ORM**, **shadcn/ui + Radix primitives**, responsive charts, drag & drop, and a clean component architecture.
 
-## Overview
+> Live preview screenshots are included in the repo root under `/docs` (add your own).
 
-This is a starter template using the following stack:
+---
 
-- Framework - [Next.js 15](https://nextjs.org/13)
-- Language - [TypeScript](https://www.typescriptlang.org)
-- Auth - [Clerk](https://go.clerk.com/ILdYhn7)
-- Error tracking - [<picture><img alt="Sentry" src="public/assets/sentry.svg">
-        </picture>](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)
-- Styling - [Tailwind CSS v4](https://tailwindcss.com)
-- Components - [Shadcn-ui](https://ui.shadcn.com)
-- Schema Validations - [Zod](https://zod.dev)
-- State Management - [Zustand](https://zustand-demo.pmnd.rs)
-- Search params state manager - [Nuqs](https://nuqs.47ng.com/)
-- Tables - [Tanstack Data Tables](https://ui.shadcn.com/docs/components/data-table) • [Dice table](https://www.diceui.com/docs/components/data-table)
-- Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
-- Command+k interface - [kbar](https://kbar.vercel.app/)
-- Linting - [ESLint](https://eslint.org)
-- Pre-commit Hooks - [Husky](https://typicode.github.io/husky/)
-- Formatting - [Prettier](https://prettier.io)
+## ✨ Highlights
 
-_If you are looking for a React admin dashboard starter, here is the [repo](https://github.com/Kiranism/react-shadcn-dashboard-starter)._
+- 🔐 Authentication & organizations with **Clerk**
+- 🗄️ **Postgres** (Neon/any PG) via **Drizzle ORM**
+- 🎛️ Ready‑made dashboard widgets (KPIs, tables, charts, recent activity)
+- 🧩 UI kit: **shadcn/ui**, **Radix UI**, **Lucide** icons
+- 🗃️ Data tables via **TanStack Table** (sorting, filtering, pagination)
+- 🗂️ Drag & drop modules (**dnd-kit**)
+- 🎨 Dark mode, themes, layout primitives, responsive design
+- 🧭 App Router, file‑based APIs, and server actions
+- 🧹 Strict linting, Prettier, Husky, and lint‑staged
+- 📦 Zero-config deploy to **Vercel**
 
-## Pages
+---
 
-| Pages                                                                                 | Specifications                                                                                                                                                                                                                                                          |
-| :------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Signup / Signin](https://go.clerk.com/ILdYhn7)      | Authentication with **Clerk** provides secure authentication and user management with multiple sign-in options including passwordless authentication, social logins, and enterprise SSO - all designed to enhance security while delivering a seamless user experience. |
-| [Dashboard (Overview)](https://shadcn-dashboard.kiranism.dev/dashboard)    | Cards with Recharts graphs for analytics. Parallel routes in the overview sections feature independent loading, error handling, and isolated component rendering. |
-| [Product](https://shadcn-dashboard.kiranism.dev/dashboard/product)         | Tanstack tables with server side searching, filter, pagination by Nuqs which is a Type-safe search params state manager in nextjs                                                                                                                                       |
-| [Product/new](https://shadcn-dashboard.kiranism.dev/dashboard/product/new) | A Product Form with shadcn form (react-hook-form + zod).                                                                                                                                                                                                                |
-| [Profile](https://shadcn-dashboard.kiranism.dev/dashboard/profile)         | Clerk's full-featured account management UI that allows users to manage their profile and security settings                                                                                                                                                             |
-| [Kanban Board](https://shadcn-dashboard.kiranism.dev/dashboard/kanban)     | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                                                                                                                                                                                  |
-| [Not Found](https://shadcn-dashboard.kiranism.dev/dashboard/notfound)      | Not Found Page Added in the root level                                                                                                                                                                                                                                  |
-| [Global Error](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy26q2-nextjs&utm_content=github-banner-project-tryfree)           | A centralized error page that captures and displays errors across the application. Integrated with **Sentry** to log errors, provide detailed reports, and enable replay functionality for better debugging. |
+## 🧰 Tech Stack
 
-## Feature based organization
+- **Framework:** Next.js 15 (App Router, Turbopack)
+- **Language:** TypeScript (5.x)
+- **UI:** tailwindcss v4, shadcn/ui, Radix UI, HeroUI, Lucide
+- **Auth:** Clerk (OAuth + email, orgs ready)
+- **DB:** Postgres (Neon), Drizzle ORM, pg
+- **State/Data:** React Hook Form, Zod, Zustand (optional)
+- **Charts:** Recharts
+- **DevX:** ESLint, Prettier, Husky, lint‑staged
+- **Monitoring (optional):** Sentry
 
-```plaintext
+---
+
+## 🚀 Quick Start
+
+```bash
+# 1) Clone
+git clone https://github.com/<your-user>/<your-repo>.git dinepanel
+cd dinepanel
+
+# 2) Install deps
+pnpm install    # or npm i / yarn
+
+# 3) Configure environment
+cp .env.example .env.local  # then edit values (see below)
+
+# 4) (Optional) Initialize DB schema with Drizzle
+# Adjust paths to your schema then run:
+pnpm drizzle-kit generate
+pnpm drizzle-kit push
+
+# 5) Run dev server
+pnpm dev
+# → http://localhost:3000
+```
+> **Note:** This starter uses **Turbopack** in dev for great DX. You can switch to `next dev` if preferred.
+
+---
+
+## 🔑 Environment Variables
+
+Create `.env.local` at the repo root and fill in:
+
+```bash
+# --- App ---
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# --- Clerk (Auth) ---
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_********************************
+CLERK_SECRET_KEY=sk_test_********************************
+
+# If using Clerk organizations (optional)
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/auth/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/auth/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard/overview
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
+
+# --- Database (Neon / Postgres) ---
+DATABASE_URL=postgres://<user>:<password>@<host>/<db>?sslmode=require
+
+# --- Sentry (optional) ---
+SENTRY_AUTH_TOKEN=
+SENTRY_ORG=
+SENTRY_PROJECT=
+```
+
+If you deploy on **Vercel**, replicate these variables in your project settings.
+
+---
+
+## 📂 Project Structure (high level)
+
+```
 src/
-├── app/ # Next.js App Router directory
-│ ├── (auth)/ # Auth route group
-│ │ ├── (signin)/
-│ ├── (dashboard)/ # Dashboard route group
-│ │ ├── layout.tsx
-│ │ ├── loading.tsx
-│ │ └── page.tsx
-│ └── api/ # API routes
-│
-├── components/ # Shared components
-│ ├── ui/ # UI components (buttons, inputs, etc.)
-│ └── layout/ # Layout components (header, sidebar, etc.)
-│
-├── features/ # Feature-based modules
-│ ├── feature/
-│ │ ├── components/ # Feature-specific components
-│ │ ├── actions/ # Server actions
-│ │ ├── schemas/ # Form validation schemas
-│ │ └── utils/ # Feature-specific utilities
-│ │
-├── lib/ # Core utilities and configurations
-│ ├── auth/ # Auth configuration
-│ ├── db/ # Database utilities
-│ └── utils/ # Shared utilities
-│
-├── hooks/ # Custom hooks
-│ └── use-debounce.ts
-│
-├── stores/ # Zustand stores
-│ └── dashboard-store.ts
-│
-└── types/ # TypeScript types
-└── index.ts
+  app/                 # App Router pages & layouts
+    (auth)/           # Clerk auth routes
+    dashboard/        # Dashboard routes & widgets
+    api/              # Route handlers / server actions
+  components/         # Reusable UI and dashboard components
+  lib/                # Utilities (db, validation, helpers)
+  db/                 # Drizzle schema & migrations (if used here)
+public/               # Static assets
 ```
 
-## Getting Started
+> The exact folders may vary in your implementation — this starter is flexible.
 
-> [!NOTE]  
-> We are using **Next 15** with **React 19**, follow these steps:
+---
 
-Clone the repo:
+## 🗄️ Database (Drizzle + Neon)
 
+1. Create a Neon (or any Postgres) database and copy the **connection string** into `DATABASE_URL`.
+2. Define your schema (e.g., `src/db/schema.ts`).
+3. Generate & push migrations:
+   ```bash
+   pnpm drizzle-kit generate
+   pnpm drizzle-kit push
+   ```
+
+---
+
+## 🔐 Authentication (Clerk)
+
+1. Create a Clerk app, copy **Publishable** and **Secret** keys.
+2. Set redirect URLs as in the env example.
+3. Wrap your app root with `ClerkProvider` and protect server/client routes with Clerk helpers (already wired in this starter).
+
+---
+
+## 🧪 Scripts
+
+```bash
+pnpm dev              # start dev (Turbopack)
+pnpm build            # production build
+pnpm start            # run built app
+pnpm lint             # lint
+pnpm lint:fix         # lint and format
+pnpm format           # prettier write
+pnpm format:check     # prettier check
 ```
-git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git
-```
 
-- `pnpm install` ( we have legacy-peer-deps=true added in the .npmrc)
-- Create a `.env.local` file by copying the example environment file:
-  `cp env.example.txt .env.local`
-- Add the required environment variables to the `.env.local` file.
-- `pnpm run dev`
+---
 
-##### Environment Configuration Setup
+## ☁️ Deployment (Vercel)
 
-To configure the environment for this project, refer to the `env.example.txt` file. This file contains the necessary environment variables required for authentication and error tracking.
+1. Push the repo to GitHub.
+2. Import the project in **Vercel**.
+3. Add the environment variables in Project Settings → Environment Variables.
+4. Click **Deploy**. That’s it.
 
-You should now be able to access the application at http://localhost:3000.
+---
 
-> [!WARNING]
-> After cloning or forking the repository, be cautious when pulling or syncing with the latest changes, as this may result in breaking conflicts.
+## 🧭 Roadmap / Ideas
 
-Cheers! 🥂
+- Multi‑tenant “locations” for restaurants
+- Orders, menu management, waitlist & reservations
+- Webhooks for POS integrations
+- Real usage data via server actions + Drizzle
+- Audit logs & activity feed
+
+---
+
+## 📄 License
+
+MIT © 2025 — You’re free to use this starter in personal and commercial projects. Consider keeping a reference to the original author.
+
+---
+
+### 🙌 Credits
+
+- UI & primitives: shadcn/ui, Radix UI, HeroUI
+- Auth: Clerk
+- DB: Drizzle ORM + Neon
+- Charts: Recharts
+
+---
+
+> Questions or improvements? Open an issue or PR. Happy building! 🚀
